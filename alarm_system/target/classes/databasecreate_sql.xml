@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+
+create sequence seq_dust_code;
+ALTER sequence seq_dust_code NOCACHE;
+create sequence seq_dust_alert_code;
+ALTER sequence seq_dust_alert_code NOCACHE;
+
+create table dust_data(
+code number(37) not null primary key,
+measuring_station_name varchar2(20),
+measuring_station_code varchar2(20),
+alert_10_level number(1),
+alert_25_level number(1),
+alert_time date
+);
+
+create table dust_alert(
+dust_alert_code number(37) not null primary key,
+dust_code number(37) not null,
+measuring_station_name varchar2(20),
+alert_level number(1),
+alert_time date,
+constraint fk_dust_code foreign key(dust_code) references dust_data(code) ON DELETE SET NULL
+);
+
+
+-->

@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module alarm_system {
-}

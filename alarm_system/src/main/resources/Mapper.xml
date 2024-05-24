@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--직접 db에 접근하기 위한 sql 문을 저장하는 곳이다 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="alarm_system.service.main.Mapper">
+  	
+  	<insert id="insert_dust_data" parameterType="alarm_system.service.main.dust_data">
+  	<selectKey keyProperty="code" order="BEFORE" resultType="long">
+  	select seq_dust_code.nextval from dual
+  	</selectKey>
+  	insert into dust_data values(#{code},#{measuring_station_name},#{measuring_station_code},#{alert_10_level},#{alert_25_level},#{alert_time})
+  	</insert>
+  	
+  	
+  	<insert id="insert_dust_alert" parameterType="alarm_system.service.main.dust_alert">
+  	<selectKey keyProperty="dust_alert_code" order="BEFORE" resultType="long">
+  	select seq_dust_alert_code.nextval from dual
+  	</selectKey>
+  	insert into dust_alert values(#{dust_alert_code},#{dust_code},#{measuring_station_name},#{alert_level},#{alert_time})
+  	</insert>
+  	<select id="get_dust_data" resultType="alarm_system.service.main.dust_data">
+  	select * from dust_data where alert_time=#{alert_time} and measuring_station_code=#{measuring_station_code}
+  	</select>
+  	
+  	
+  </mapper>
