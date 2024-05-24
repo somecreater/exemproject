@@ -5,4 +5,5 @@ public interface Mapper {
 	public void insert_dust_data(dust_data data);
 	public void insert_dust_alert(dust_alert data);
 	public dust_data get_dust_data(dust_data data);
+	public void insert_station_inspection(station_inspection inspection);
 }

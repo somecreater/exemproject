@@ -62,6 +62,15 @@ public class dust_analysis_service {
 		mpr.insert_dust_data(dust);
 		session.commit();
 		
+		//pm10과 pm25가 둘다 0이면 점검이라고 판단하고 점검 정보를 db에 저장한다.
+		if(PM10==0&&PM25==0) {
+			station_inspection inspection=new station_inspection();
+			inspection.setAlert_time(dusttime);
+			inspection.setMeasuring_station_code(position_code);
+			inspection.setMeasuring_station_name(position);
+			mpr.insert_station_inspection(inspection);
+			session.commit();
+		}
 		dust_data data=mpr.get_dust_data(dust);
 		
 		Date alerttime=dusttime;

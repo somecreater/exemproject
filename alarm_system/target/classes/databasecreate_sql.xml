@@ -6,6 +6,15 @@ create sequence seq_dust_code;
 ALTER sequence seq_dust_code NOCACHE;
 create sequence seq_dust_alert_code;
 ALTER sequence seq_dust_alert_code NOCACHE;
+create sequence seq_inspection;
+ALTER sequence seq_inspection NOCACHE;
+
+create table station_inspection(
+code number(37) not null primary key,
+measuring_station_name varchar2(20),
+measuring_station_code varchar2(20),
+alert_time date
+)
 
 create table dust_data(
 code number(37) not null primary key,

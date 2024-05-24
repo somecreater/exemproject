@@ -23,5 +23,11 @@
   	select * from dust_data where alert_time=#{alert_time} and measuring_station_code=#{measuring_station_code}
   	</select>
   	
+  	<insert id="insert_station_inspection" parameterType="alarm_system.service.main.station_inspection">
+  	<selectKey keyProperty="code" order="BEFORE" resultType="long">
+  	select seq_inspection.nextval from dual
+  	</selectKey>
+  	insert into station_inspection values(#{code},#{measuring_station_name},#{measuring_station_code},#{alert_time})
+  	</insert>
   	
   </mapper>
