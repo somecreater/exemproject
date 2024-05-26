@@ -22,7 +22,7 @@ public class databasesetting {
 	  static {
 	        try {
 	        	
-	        	//db 설정을 위한 db 계정 및 세부 설정
+	        	//db설정을 위한 db계정 및 세부 설정
 	        	HikariConfig config = new HikariConfig();
 	        	config.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:xe");
 	            config.setUsername("c##book_ex");
