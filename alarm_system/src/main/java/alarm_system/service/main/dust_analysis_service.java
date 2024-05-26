@@ -8,6 +8,7 @@ import java.util.Date;
 import org.apache.ibatis.session.SqlSession;
 
 
+//tcp 소켓을 활용한 알림 전송을 하고 싶으면, db에 경보 정보를 저장하는 부분에 해당 코드를 추가하면 된다.
 //경보 단계 여부 분석 서비스 이다.
 public class dust_analysis_service {
 	
